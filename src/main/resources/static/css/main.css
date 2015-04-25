@@ -5,3 +5,7 @@ body {
 .teaser {
     padding-bottom: 15px;
 }
+
+.gray {
+    color: dimgray;
+}

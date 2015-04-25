@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title data-th-utext="#{index.title}">Feedback</title>
+  <link rel="stylesheet" data-th-href="@{/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" data-th-href="@{/css/bootstrap-theme.min.css}"/>
+  <link rel="stylesheet" data-th-href="@{/css/main.css}"/>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" data-th-text="#{index.project.name}">Project name</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="alert alert-danger" data-th-text="#{error.message}"></div>
+</div>
+
+<script data-th-src="@{/js/jquery.min.js}"></script>
+<script data-th-src="@{/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
