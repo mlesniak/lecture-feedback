@@ -9,7 +9,7 @@
   <div id="success" data-th-if="${submit}" class="alert alert-success" data-th-text="#{index.submit.success}"></div>
   <div class="teaser" data-th-utext="#{index.teaser}">Teaser text</div>
 
-  <form data-th-action="@{/feedback/submit}" method="post">
+  <form data-th-action="@{/submit}" method="post">
     <div class="form-group">
       <textarea class="form-control" name="text" rows="10" data-th-placeholder="#{index.placeholder}" autofocus="autofocus"></textarea>
     </div>

@@ -1,4 +1,4 @@
-package com.micromata.feedback;
+package com.micromata.feedback.persistence;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

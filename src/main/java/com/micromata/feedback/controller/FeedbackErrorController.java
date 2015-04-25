@@ -1,4 +1,4 @@
-package com.micromata.feedback;
+package com.micromata.feedback.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

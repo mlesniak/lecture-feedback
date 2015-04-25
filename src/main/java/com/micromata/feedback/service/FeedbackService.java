@@ -1,5 +1,7 @@
-package com.micromata.feedback;
+package com.micromata.feedback.service;
 
+import com.micromata.feedback.persistence.FeedbackEntry;
+import com.micromata.feedback.persistence.FeedbackEntryRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

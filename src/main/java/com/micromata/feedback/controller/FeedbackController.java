@@ -1,5 +1,8 @@
-package com.micromata.feedback;
+package com.micromata.feedback.controller;
 
+import com.micromata.feedback.persistence.FeedbackEntry;
+import com.micromata.feedback.persistence.FeedbackEntryRepository;
+import com.micromata.feedback.service.FeedbackService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,25 +21,20 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Handles request to /.
+ * Handles all feedback-related requests.
  *
  * @author Michael Lesniak (mlesniak@micromata.de)
  */
 @Controller
-public class MainController {
-  private static final Logger LOG = LoggerFactory.getLogger(MainController.class);
+@RequestMapping("/feedback")
+public class FeedbackController {
+  private static final Logger LOG = LoggerFactory.getLogger(FeedbackController.class);
 
   @Autowired
   private FeedbackEntryRepository feedbackEntryRepository;
 
   @Autowired
   private FeedbackService feedbackService;
-
-  @RequestMapping("/")
-  public String index() {
-    LOG.info("Feedback page called");
-    return "index";
-  }
 
   @RequestMapping(value = "/submit", method = RequestMethod.POST)
   public ModelAndView submit(@RequestParam("text") String text) {
@@ -63,5 +61,4 @@ public class MainController {
     }
     return new ResponseEntity<>(messages, HttpStatus.OK);
   }
-
 }
