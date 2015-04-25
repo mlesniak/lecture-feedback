@@ -19,4 +19,10 @@ public class MainController {
     LOG.info("Feedback page called");
     return "index";
   }
+
+  @RequestMapping("/about")
+  public String about() {
+    LOG.info("About page called");
+    return "about";
+  }
 }
