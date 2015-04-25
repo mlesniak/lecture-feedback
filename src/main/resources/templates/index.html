@@ -11,7 +11,7 @@
 
   <form data-th-action="@{/feedback/submit}" method="post">
     <div class="form-group">
-      <textarea class="form-control" name="text" rows="10" data-th-placeholder="#{index.placeholder}" autofocus="autofocus"></textarea>
+      <textarea class="form-control" name="text" rows="10" data-th-placeholder="#{index.placeholder}" autofocus="autofocus" maxlength="16000"></textarea>
     </div>
     <button type="submit" class="btn btn-default" data-th-text="#{index.submit}">Submit</button>
   </form>
