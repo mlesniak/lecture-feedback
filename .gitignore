@@ -7,3 +7,5 @@ target
 scratchpad
 
 
+# Ignore local (private) configuration
+src/main/resources/application-local.properties
