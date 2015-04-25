@@ -56,7 +56,7 @@ public class FeedbackController {
     }
 
     List<String[]> messages = new LinkedList<>();
-    for (FeedbackEntry entry : feedbackEntryRepository.findAll()) {
+    for (FeedbackEntry entry : feedbackEntryRepository.findAllByOrderByCreatedAtDesc()) {
       String[] row = new String[2];
       row[0] = entry.getCreatedAt().toString();
       row[1] = entry.getText();
