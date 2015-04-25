@@ -2,7 +2,9 @@ package com.micromata.feedback;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import javax.mail.*;
@@ -31,6 +33,9 @@ public class EmailService {
   @Value("${email.password}")
   protected String password;
 
+  @Autowired
+  private Environment environment;
+
   /**
    * Sends an email.
    *
@@ -40,8 +45,13 @@ public class EmailService {
    * @param text    the email text (text/html)
    */
   public void sendMail(String from, String to, String subject, String text) throws MessagingException {
+    if (environment.acceptsProfiles("dev")) {
+      LOG.warn("Profile 'dev' is activated. Email NOT send.");
+    } else {
       internalSendMail(from, to, subject, text);
-      LOG.info("Mail send successfully. to:{}, subject:{}", to, subject);
+    }
+
+    LOG.info("Mail send successfully. to:{}, subject:{}", to, subject);
   }
 
   /**
