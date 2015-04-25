@@ -28,6 +28,9 @@ public class FeedbackService {
   @Value("${email}")
   private String email;
 
+  @Value("${subject}")
+  private String subject;
+
   /**
    * Stores a feedback entry and sends an email to the configured address.
    *
@@ -42,7 +45,7 @@ public class FeedbackService {
       emailService.sendMail(
           emailService.getUsername(),
           email,
-          "Feedback",
+          subject,
           format(feedbackEntry)
       );
     } catch (MessagingException e) {
