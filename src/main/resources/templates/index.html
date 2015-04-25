@@ -28,7 +28,15 @@
 </nav>
 
 <div class="container">
-  <div data-th-utext="#{index.teaser}">Teaser text</div>
+  <div class="teaser" data-th-utext="#{index.teaser}">Teaser text</div>
+
+  <form data-th-action="@{/submit}" method="post">
+    <div class="form-group">
+      <textarea class="form-control" name="text" data-th-placeholder="#{index.placeholder}"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-default" data-th-text="#{index.submit}">Submit</button>
+  </form>
 </div>
 
 <script data-th-src="@{/js/jquery.min.js}"></script>
