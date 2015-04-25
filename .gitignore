@@ -1,0 +1,9 @@
+# Java
+.idea
+*.iml
+target
+
+# Notes
+scratchpad
+
+
