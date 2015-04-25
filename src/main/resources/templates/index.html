@@ -28,7 +28,7 @@
 </nav>
 
 <div class="container">
-  <div data-th-if="${submit}" class="alert alert-success" data-th-text="#{index.submit.success}"></div>
+  <div id="success" data-th-if="${submit}" class="alert alert-success" data-th-text="#{index.submit.success}"></div>
 
   <div class="teaser" data-th-utext="#{index.teaser}">Teaser text</div>
 
@@ -43,5 +43,19 @@
 
 <script data-th-src="@{/js/jquery.min.js}"></script>
 <script data-th-src="@{/js/bootstrap.min.js}"></script>
+
+<script data-th-inline="javascript">
+  /*<![CDATA[*/
+  $(function() {
+    // Close success alert after 3 seconds
+    window.setTimeout(function() {
+      $("#success").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove();
+      });
+    }, 3000);
+  });
+  /*]]>*/
+</script>
+
 </body>
 </html>
