@@ -29,6 +29,9 @@ public class MainController {
   @Autowired
   private FeedbackEntryRepository feedbackEntryRepository;
 
+  @Autowired
+  private FeedbackService feedbackService;
+
   @RequestMapping("/")
   public String index() {
     LOG.info("Feedback page called");
@@ -40,10 +43,7 @@ public class MainController {
     LOG.info("Feedback text='{}'", text);
     ModelAndView mav = new ModelAndView("index");
     mav.addObject("submit", true);
-
-    FeedbackEntry feedbackEntry = new FeedbackEntry(text);
-    feedbackEntryRepository.save(feedbackEntry);
-
+    feedbackService.persistAndSubmit(text);
     return mav;
   }
 
