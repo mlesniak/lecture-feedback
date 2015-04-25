@@ -60,6 +60,6 @@ public class FeedbackService {
    * @return email body.
    */
   private String format(FeedbackEntry entry) {
-    return String.format("%s<br/>%s", entry.getCreatedAt().toString(), entry.getText());
+    return String.format("%s<br/>%s<br/>", entry.getCreatedAt().toString(), entry.getText());
   }
 }
