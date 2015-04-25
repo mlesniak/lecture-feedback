@@ -47,7 +47,7 @@ public class FeedbackController {
 
   @ResponseBody
   @RequestMapping(value = "/list")
-  public ResponseEntity<Iterable<String>> list(
+  public ResponseEntity<Iterable<String[]>> list(
       @RequestParam("token") String token,
       @Value("${token}") String expectedToken) {
     if (StringUtils.pathEquals(token, expectedToken) == false) {
@@ -55,9 +55,12 @@ public class FeedbackController {
       return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 
-    List<String> messages = new LinkedList<>();
+    List<String[]> messages = new LinkedList<>();
     for (FeedbackEntry entry : feedbackEntryRepository.findAll()) {
-      messages.add(entry.getCreatedAt().toString() + " | " + entry.getText());
+      String[] row = new String[2];
+      row[0] = entry.getCreatedAt().toString();
+      row[1] = entry.getText();
+      messages.add(row);
     }
     return new ResponseEntity<>(messages, HttpStatus.OK);
   }
