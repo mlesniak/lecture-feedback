@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
-  <title data-th-text="#{index.title}">Feedback</title>
+  <title data-th-utext="#{index.title}">Feedback</title>
   <link rel="stylesheet" data-th-href="@{/css/bootstrap.min.css}"/>
   <link rel="stylesheet" data-th-href="@{/css/bootstrap-theme.min.css}"/>
   <link rel="stylesheet" data-th-href="@{/css/main.css}"/>
@@ -28,7 +28,7 @@
 </nav>
 
 <div class="container">
-  <h1>Bootstrap starter template</h1>
+  <div data-th-utext="#{index.teaser}">Teaser text</div>
 </div>
 
 <script data-th-src="@{/js/jquery.min.js}"></script>
