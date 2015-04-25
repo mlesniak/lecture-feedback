@@ -28,6 +28,8 @@
 </nav>
 
 <div class="container">
+  <div data-th-if="${submit}" class="alert alert-success" data-th-text="#{index.submit.success}"></div>
+
   <div class="teaser" data-th-utext="#{index.teaser}">Teaser text</div>
 
   <form data-th-action="@{/submit}" method="post">
