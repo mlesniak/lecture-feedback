@@ -45,6 +45,13 @@ public class FeedbackController {
     return mav;
   }
 
+
+  @RequestMapping(value = "/submit", method = RequestMethod.GET)
+  public String submitGet() {
+    LOG.info("/submit called with GET");
+    return "redirect:/";
+  }
+
   @ResponseBody
   @RequestMapping(value = "/list")
   public ResponseEntity<Iterable<String[]>> list(
