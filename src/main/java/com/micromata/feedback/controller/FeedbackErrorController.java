@@ -25,12 +25,12 @@ public class FeedbackErrorController implements ErrorController {
   /**
    * Path to error template.
    */
-  public static final String PATH = "/error";
+  public static final String PATH = "error";
 
   @Autowired
   private ErrorAttributes errorAttributes;
 
-  @RequestMapping(value = PATH)
+  @RequestMapping(value = "/" + PATH)
   public String error(HttpServletRequest request) {
     Map<String, Object> attributes = getErrorAttributes(request, false);
     LOG.error("Error at {}: '{}'", attributes.get("path"), attributes.get("message"));
