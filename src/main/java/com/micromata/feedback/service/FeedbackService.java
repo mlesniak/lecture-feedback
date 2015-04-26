@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import javax.mail.MessagingException;
-
 /**
  * Domain-logic for feedback.
  *
@@ -41,16 +39,12 @@ public class FeedbackService {
     FeedbackEntry feedbackEntry = new FeedbackEntry(text);
     feedbackEntryRepository.save(feedbackEntry);
 
-    try {
-      emailService.sendMail(
-          emailService.getUsername(),
-          email,
-          subject,
-          format(feedbackEntry)
-      );
-    } catch (MessagingException e) {
-      LOG.warn("Unable to send email. error={}", e.getMessage(), e);
-    }
+    emailService.sendBackgroundMail(
+        emailService.getUsername(),
+        email,
+        subject,
+        format(feedbackEntry)
+    );
   }
 
   /**

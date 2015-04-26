@@ -37,6 +37,28 @@ public class EmailService {
   private Environment environment;
 
   /**
+   * Sends an email in the backgrond, hence no waiting.
+   *
+   * @param from    the sender
+   * @param to      the receiver
+   * @param subject the subject
+   * @param text    the email text (text/html)
+   */
+  public void sendBackgroundMail(String from, String to, String subject, String text) {
+    LOG.info("Spawning background email thread");
+    (new Thread() {
+      @Override
+      public void run() {
+        try {
+          sendMail(from, to, subject, text);
+        } catch (MessagingException e) {
+          LOG.warn("Unable to send email. error={}", e.getMessage(), e);
+        }
+      }
+    }).start();
+  }
+
+  /**
    * Sends an email.
    *
    * @param from    the sender
